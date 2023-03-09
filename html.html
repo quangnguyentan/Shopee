@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <title>Khoá học</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+  </head>
+
+  <body>
+    <style>
+      .card-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+    </style>
+    <div class="container mt-5">
+      <div class="card-columns content"></div>
+      <div class="mt-5">
+        <div class="form-group">
+          <label for="title">Tiêu đề</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            id="title"
+            placeholder="Nhập tiêu đề"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Mô tả</label>
+          <input
+            type="text"
+            name="description"
+            class="form-control"
+            id="description"
+            placeholder="Nhập mô tả"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image">Link ảnh</label>
+          <input
+            type="text"
+            name="image"
+            class="form-control"
+            id="image"
+            placeholder="Link ảnh"
+          />
+        </div>
+        <button class="btn btn-primary create">Thêm khoá học</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <!-- <script src="./app.js"></script> -->
+    <script>
+      const url =
+        "https://tinhr.dev/courses.json?fbclid=IwAR2h2djbbROqoHFsyzgC3EkVh8gJKneNKwVUMMfIn-UHDoavjFwYFB8lEx0";
+      const blockContent = document.querySelector(".content");
+      function start() {
+        getCourses(renderCourses);
+        handleGetValueForm();
+      }
+      start();
+
+      function renderHtmlCourse(course) {
+        return `
+  <div class="card card-item-${course.id}">
+    <img class="card-img-top" src="${course.src}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">${course.title}</h5>
+      <p class="card-text">${course.description}</p>
+      <button class="btn btn-primary" onclick="handleDeleteCourse(${course.id})">Xoá</button>
+    </div>
+  </div>
+  `;
+      }
+
+      function getCourses(callback) {
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(callback);
+      }
+
+      function renderCourses(courses) {
+        let htmls = courses.map(function (course) {
+          return renderHtmlCourse(course);
+        });
+        let html = htmls.join("");
+        blockContent.innerHTML = html;
+      }
+
+      function createCourse(data, callback) {
+        let options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+        fetch(url, options)
+          .then(function (response) {
+            response.json();
+          })
+          .then(callback);
+      }
+      function handleGetValueForm() {
+        let create = document.querySelector(".create");
+
+        create.onclick = function () {
+          let title = document.querySelector("input[name='title']").value;
+          let description = document.querySelector(
+            "input[name='description']"
+          ).value;
+          let image = document.querySelector("input[name='image']").value;
+
+          let formData = {
+            title: title,
+            description: description,
+            src: image,
+          };
+          createCourse(formData, insertCourse);
+        };
+      }
+
+      function insertCourse(data) {
+        blockContent.insertAdjacentHTML("beforeend", renderHtmlCourse(data));
+      }
+
+      function handleDeleteCourse(id) {
+        fetch(url + "/" + id, {
+          method: "DELETE",
+        }).then(function () {
+          document.querySelector(".card-item-" + id).remove();
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -12,11 +12,11 @@ c-* : mobile
 no-gutters : no gutters each column
 */
 
-.grid {
+/* .grid {
     width: 100%;
     display: block;
     padding: 0;
-}
+} */
 
 .grid.wide {
     max-width: 1200px;

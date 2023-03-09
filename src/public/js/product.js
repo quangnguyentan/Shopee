@@ -87,7 +87,6 @@ function responsive() {
     }
   }
 }
-
 function checkPageArrow() {
   var paginationLink = document.querySelectorAll(".pagination-item-link");
   if (document.querySelector(".pagination-item--active a").textContent == 1) {

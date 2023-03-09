@@ -1,7 +1,8 @@
+
 .app {
     overflow: hidden;
 }
-
+/*
 .header {
     height: var(--header-height);
     background-image: linear-gradient(var(--main-color1), var(--main-color2));
@@ -51,7 +52,6 @@
     position: relative;
 }
 
-/* cầu nối liền mạch */
 
 .header__nav-user::after {
     content: "";
@@ -91,7 +91,7 @@
 }
 
 
-/* cầu nối liền mạch tam giác */
+
 
 .header__nav-user-menu::before {
     content: "";
@@ -165,7 +165,7 @@
 }
 
 
-/* cầu nối liền mạch */
+
 
 .header__qrcode::before {
     display: block;
@@ -207,15 +207,13 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     background-color: var(--white-color);
-    /* xđ vị trí tâm của scale 
-    transform-origin: y x; */
     transform-origin: 85% top;
     animation: grow ease-in 0.3s;
     display: none;
 }
 
 
-/* cầu nối liền mạch tam giác */
+
 
 .header__notifi::before {
     content: "";
@@ -228,9 +226,9 @@
 }
 
 
-/* cách tạo tam giác : tạo 1 thẻ 0x0 border chính là 4 hình tam giác
+
 border: 1 px solid;
-border-color: red green blue yellow */
+border-color: red green blue yellow 
 
 .header__show-note:hover .header__notifi,
 .header__notifi:hover {
@@ -261,7 +259,6 @@ border-color: red green blue yellow */
 .header__notifi-link {
     display: flex;
     padding: 12px;
-    /* width: 100%; */
     text-decoration: none;
 }
 
@@ -591,7 +588,6 @@ border-color: red green blue yellow */
     animation: grow ease-in 0.3s;
 }
 
-/* cầu nối liền mạch tam giác */
 
 .header__cart-list::before {
     content: "";
@@ -603,7 +599,6 @@ border-color: red green blue yellow */
     top: -32px;
 }
 
-/* when no cart */
 
 .header__cart--no-cart .header__cart-icon:hover~.header__cart-list.no-cart,
 .header__cart--no-cart .header__cart-list.no-cart:hover {
@@ -621,7 +616,6 @@ border-color: red green blue yellow */
     margin-bottom: 0;
 }
 
-/* when has cart */
 
 .header__cart--has-cart .header__cart-icon:hover~.header__cart-list.has-cart,
 .header__cart--has-cart .header__cart-count:hover~.header__cart-list.has-cart,
@@ -776,12 +770,11 @@ border-color: red green blue yellow */
 .header__sort-item:first-child .header__sort-link::before {
     display: none;
 }
-
-/* container */
+*/
 
 .container {
     background-color: var(--contain-color);
-    padding-top: 24px;
+    padding-top: 150px;
 }
 
 .category-heading {
@@ -1374,4 +1367,23 @@ border-color: red green blue yellow */
 
 .other-footer-more {
     margin: 8px 10px 0;
+}
+
+#paging ul{
+    list-style: none;
+    display: flex;
+}
+#paging .paginationjs-page, 
+.paginationjs-ellipsis,
+.paginationjs-prev,
+.paginationjs-next
+
+{
+    width: 50px;
+    height: 50px;
+    border : 1px solid black;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+    cursor: pointer;
 }

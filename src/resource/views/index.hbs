@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="/css/style.css">
 
+</head>
 <body>
+    {{>header}}
+
     <div class="main">
         <!-- Start Container -->
         <div class="container">
@@ -231,7 +234,6 @@
                     <div class="main-category__header">
                         danh mục
                     </div>
-
                     <div class="main-category__list">
                         <div class="main-category__item">
                             <a href="#" class="main-category__item-link">
@@ -248,7 +250,7 @@
                             </a>
                         </div>
                         <div class="main-category__item">
-                            <a href="/details" class="main-category__item-link">
+                            <a href="/details/" class="main-category__item-link">
                                 <img src="/img/main-category/electronic-device.png" alt="Main category item img"
                                     class="main-category__item-img">
                                 <div class="main-category__item-text">Thiết bị điện tử</div>
@@ -493,6 +495,8 @@
 
         </div>
         <!-- End Footer -->
+    {{>footer}}
+
     </div>
 </body>
 

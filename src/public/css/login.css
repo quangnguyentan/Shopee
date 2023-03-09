@@ -166,6 +166,7 @@ form {
   align-items: center;
 }
 .number {
+  width: 100%;
   padding: 0.75rem;
     outline: none;
     border: 0;
@@ -174,15 +175,33 @@ form {
     filter: none;
     line-height: normal;
 }
-.form__comter--box-no {
-  display: block;
-  margin: 0;
-    padding: 0.25rem 0 0;
-    font-size: .75rem;
-    color: #ff424f;
-    min-height: 1rem;
+.form__comter--box-pass {
+  margin-top: 10px;
+  width: 340px;
+  height: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.14);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+  display: flex;
+  align-items: center;
 }
+.password {
+  width: 100%;
+  padding: 0.75rem;
+    outline: none;
+    border: 0;
+    flex: 1;
+    flex-shrink: 0;
+    filter: none;
+    line-height: normal;
+}
+
 button { 
+  margin-top: 50px;
   opacity: .7;
   cursor: not-allowed;
   margin-bottom: 30px;
@@ -238,8 +257,7 @@ button {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
-  
-  
+
 }
 .button__bottom {
   cursor: pointer;
@@ -282,16 +300,6 @@ button {
   width: 335px;
   height: 28.79px;
   display: block;
-}
-.form__comter--box2-comment p {
-  width: 388.8px;
-  height: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, 文泉驛正黑, "WenQuanYi Zen Hei", "Hiragino Sans GB", "儷黑 Pro", "LiHei Pro", "Heiti TC", 微軟正黑體, "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif;
-  font-size: 12px;
-  line-height: 14px;
-  color: rgba(0,0,0,.87);
-  margin: 20px 0 0 35px;
-  
 }
 .form__comter--box2-comment span {
   font-family: "Helvetica Neue", Helvetica, Arial, 文泉驛正黑, "WenQuanYi Zen Hei", "Hiragino Sans GB", "儷黑 Pro", "LiHei Pro", "Heiti TC", 微軟正黑體, "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif;

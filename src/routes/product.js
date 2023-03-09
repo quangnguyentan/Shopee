@@ -2,8 +2,10 @@ const express = require("express");
 const route = express.Router();
 const sortMiddleware = require("../app/middlewares/sortMiddleware");
 const productsController = require("../app/controllers/productControllers");
-
-route.get("/", productsController.index);
+const { checkToken } = require("../app/middlewares/checkToken");
+const { checkAdmin } = require("../app/middlewares/checkAdmin");
+// route.get("/private", productsController.verifyToken);
+route.get("/", checkToken, checkAdmin, productsController.index);
 route.get("/details", productsController.details);
-
+route.get("/server", productsController.server);
 module.exports = route;

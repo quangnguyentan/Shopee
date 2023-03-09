@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="/css/grid.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
   <body>
+    {{>header}}
+
     <!-- main -->
     <div class="app">
       <!-- container -->
@@ -356,7 +360,9 @@
                     </ul>
                   </div>
                 </div>
-                <div class="home-filter-page">
+                <div id="paging"></div>
+
+                {{!-- <div class="home-filter-page">
                   <div class="home-filter-page-number">
                     <p class="home-filter-page-now">1</p>
                     /14
@@ -372,7 +378,7 @@
                       <i class="fas fa-angle-right"></i>
                     </a>
                   </div>
-                </div>
+                </div> --}}
               </div>
               <!-- home product -->
               <div class="home-product">
@@ -418,8 +424,12 @@
                     </li>
                   </ul>
                 </nav>
-                <div id="list-product" class="row sm-gutter">
+                 <div id="list-product" class="row sm-gutter">
+      
+                </div>
+                {{!-- <div id="list-product" class="row sm-gutter">
                   {{#each products}}  
+                  
                 <div data="${item.id}" class="col l-2-4 m-3 c-6 home-product-item">
                   <a id="{{this.name}}" class="home-product-item-link" href="/detail/{{this.name}}">
                   <div id="{{this.name}}" class="home-product-item__img" style="background-image: url(/img/home/{{this.image}}" >
@@ -459,8 +469,8 @@
             </a>
         </div>
       {{/each}}
-     </div> 
-              <!-- pagination -->
+     </div>  --}}
+              {{!-- <!-- pagination -->
               <ul class="pagination home-product-pagination">
                 <li class="pagination-item">
                   <a
@@ -493,7 +503,7 @@
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
@@ -555,7 +565,6 @@
             </a>
           </div>
         </div>
-
         <!-- authen login-->
         <div class="auth-form">
           <div class="auth-form__container">
@@ -609,8 +618,12 @@
         </div>
       </div>
     </div>
-
+    {{>footer}}
+   
     <!-- script js -->
-    <script src="/js/product.js"></script>
+    <script src="/js/jquery-3.6.3.min.js"></script>
+    <script src="/js/pagination.js"></script>
+    <script src="/js/main.js"></script>
   </body>
+  
 </html>

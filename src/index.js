@@ -2,15 +2,18 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const handlebars = require("express-handlebars");
+const cookieParser = require("cookie-parser");
 // const methodOverride = require("method-override");
 const path = require("path");
-const bodyParser = require("body-parser"); 
+const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const port = 3000;
 const SortMiddleware = require("./app/middlewares/sortMiddleware");
 const route = require("./routes");
 const db = require("./config/db");
 //Connect to db
 db.connect();
+
 app.use(express.static("./src/public"));
 app.use(
   express.urlencoded({
@@ -21,6 +24,7 @@ app.use(express.json()); // gửi từ code JS khi sử dụng thư viện HMLHt
 // app.use(morgan("combined"));
 // app.use(methodOverride("_method"));
 app.use(SortMiddleware);
+app.use(cookieParser());
 app.engine(
   "hbs",
   handlebars.engine({
